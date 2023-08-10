@@ -1,12 +1,20 @@
 import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import { setupCounter } from "./counter.js";
+
+import image1 from "./Assets/Img/Blog/image-1.jpg";
+import image2 from "./Assets/Img/Blog/image-2.jpg";
+import image3 from "./Assets/Img/Blog/image-3.jpg";
+import image4 from "./Assets/Img/Blog/image-4.jpeg";
+import image5 from "./Assets/Img/Blog/image-5.jpg";
+import image6 from "./Assets/Img/Blog/image-6.jpg";
+import image7 from "./Assets/Img/Blog/image-7.jpg";
+
+const images = [image1, image2, image3, image4, image5, image6, image7];
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const tl = gsap
+gsap
   .timeline({
     scrollTrigger: {
       trigger: ".img1",
@@ -51,20 +59,8 @@ setInterval(() => {
   }
   // @ Change the Image one by one
   setTimeout(() => {
-    if (currentImage_num == 4) {
-      image.src = `./Assets/Img/Blog/image-${currentImage_num}.jpeg`;
-    } else {
-      image.src = `./Assets/Img/Blog/image-${currentImage_num}.jpg`;
-    }
+    console.log(currentImage_num);
+    image.src = images[currentImage_num - 1];
+    image.alt = `Image ${currentImage_num + 1}`;
   }, 150);
 }, 2000);
-
-
-
-
-
-
-
-
-
-
